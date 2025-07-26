@@ -6,7 +6,7 @@ public class Patient {
     private int patientId;
     private String patientFirstName;
     private String patientLastName;
-    private Date patientDOB; // java.sql.Date for JDBC
+    private Date patientDOB;
 
     public Patient(int patientId, String patientFirstName, String patientLastName, Date patientDOB) {
         this.patientId = patientId;

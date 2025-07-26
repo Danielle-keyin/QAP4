@@ -19,9 +19,14 @@ public class Main {
             System.out.println("4. Read Patients from database");
             System.out.println("0. Exit");
             System.out.print("Pick your poison: ");
-
-            choice = scanner.nextInt();
-            scanner.nextLine(); // consume newline
+if (scanner.hasNextInt()) {
+    choice = scanner.nextInt();
+    scanner.nextLine();
+} else {
+    System.out.println("Invalid input! Numbers only please.");
+    scanner.nextLine();
+    choice = -1;
+}
 
             switch (choice) {
                 case 1 -> {
@@ -53,7 +58,7 @@ public class Main {
                     String last = scanner.nextLine();
                     System.out.print("DOB (YYYY-MM-DD): ");
                     String dobStr = scanner.nextLine();
-                    Date dob = Date.valueOf(dobStr); // Converts to java.sql.Date
+                    Date dob = Date.valueOf(dobStr);
 
                     PatientDatabaseHandler.savePatient(new Patient(id, first, last, dob));
                 }
